@@ -1,0 +1,3 @@
+Files in this repository are custom IntelliJ IDEA inspections ("Structural code searches") for helping with Java security code audits. 
+
+Check this blogpost for more details http://www.surrendercontrol.com/2012/11/starting-java-code-audits-with-intellij.html
