@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inspections version="1.0" is_locked="false">
-  <option name="myName" value="Security Audit Full v1.0" />
+  <option name="myName" value="Security Audit Java" />
   <option name="myLocal" value="false" />
   <inspection_tool class="AbstractBeanReferencesInspection" enabled="false" level="ERROR" enabled_by_default="false" />
   <inspection_tool class="AccessStaticViaInstance" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1155,6 +1155,14 @@
       <constraint name="Annotation" script="&quot;&quot;" regexp="Path|Produces|Consumes" maxCount="2147483647" wholeWordsOnly="true" within="" contains="" />
       <constraint name="Class" script="&quot;&quot;" target="true" within="" contains="" />
       <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="REST annotated methods" text="class $Class$ {&#10;  @$Annotation$( )&#10;  $MethodType$ $MethodName$($ParameterType$ $ParameterName$);&#10;}" recursive="false" caseInsensitive="false" type="JAVA">
+      <constraint name="Class" script="&quot;&quot;" within="" contains="" />
+      <constraint name="Annotation" script="&quot;&quot;" regexp="Path" maxCount="2147483647" wholeWordsOnly="true" within="" contains="" />
+      <constraint name="MethodType" maxCount="2147483647" within="" contains="" />
+      <constraint name="MethodName" maxCount="2147483647" target="true" within="" contains="" />
+      <constraint name="ParameterType" minCount="0" maxCount="2147483647" within="" contains="" />
+      <constraint name="ParameterName" minCount="0" maxCount="2147483647" within="" contains="" />
     </searchConfiguration>
   </inspection_tool>
   <inspection_tool class="SafeVarargsDetector" enabled="false" level="WARNING" enabled_by_default="false" />
