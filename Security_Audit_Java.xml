@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inspections version="1.0" is_locked="false">
   <option name="myName" value="Security Audit Java" />
-  <option name="myLocal" value="false" />
+  <option name="myLocal" value="true" />
   <inspection_tool class="AbstractBeanReferencesInspection" enabled="false" level="ERROR" enabled_by_default="false" />
   <inspection_tool class="AccessStaticViaInstance" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="AccessorLikeMethodIsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1163,6 +1163,47 @@
       <constraint name="MethodName" maxCount="2147483647" target="true" within="" contains="" />
       <constraint name="ParameterType" minCount="0" maxCount="2147483647" within="" contains="" />
       <constraint name="ParameterName" minCount="0" maxCount="2147483647" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="XML - XMLInputFactory" text="$foo$" recursive="true" caseInsensitive="true" type="JAVA">
+      <constraint name="Parameter" within="" contains="" />
+      <constraint name="blah" script="&quot;&quot;" within="" contains="" />
+      <constraint name="foo" script="&quot;&quot;" nameOfExprType="javax.xml.stream.XMLInputFactory" target="true" within="" contains="" />
+      <constraint name="asd" script="&quot;&quot;" within="" contains="" />
+      <constraint name="bar" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="XML - nu.xom.Builder" text="$bar$" recursive="true" caseInsensitive="true" type="JAVA">
+      <constraint name="foo" script="&quot;&quot;" within="" contains="" />
+      <constraint name="bar" script="&quot;&quot;" nameOfExprType="nu.xom.Builder" target="true" within="" contains="" />
+      <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="XML - nu.xom.Document" text="$bar$" recursive="true" caseInsensitive="true" type="JAVA">
+      <constraint name="foo" script="&quot;&quot;" within="" contains="" />
+      <constraint name="bar" script="&quot;&quot;" nameOfExprType="nu.xom.Document" target="true" within="" contains="" />
+      <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="XML - DocumentBuilderFactory" text="$foo$" recursive="true" caseInsensitive="true" type="JAVA">
+      <constraint name="Parameter" within="" contains="" />
+      <constraint name="blah" script="&quot;&quot;" within="" contains="" />
+      <constraint name="foo" script="&quot;&quot;" nameOfExprType="javax.xml.parsers.DocumentBuilderFactory" target="true" within="" contains="" />
+      <constraint name="asd" script="&quot;&quot;" within="" contains="" />
+      <constraint name="bar" within="" contains="" />
+      <constraint name="method" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="XML - SAXParserFactory" text="$foo$" recursive="true" caseInsensitive="true" type="JAVA">
+      <constraint name="Parameter" within="" contains="" />
+      <constraint name="blah" script="&quot;&quot;" within="" contains="" />
+      <constraint name="foo" script="&quot;&quot;" nameOfExprType="javax.xml.parsers.SAXParserFactory" target="true" within="" contains="" />
+      <constraint name="asd" script="&quot;&quot;" within="" contains="" />
+      <constraint name="bar" within="" contains="" />
+      <constraint name="method" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="XML - SAXBuilder" text="$foo$" recursive="true" caseInsensitive="true" type="JAVA">
+      <constraint name="Parameter" within="" contains="" />
+      <constraint name="blah" script="&quot;&quot;" within="" contains="" />
+      <constraint name="foo" script="&quot;&quot;" nameOfExprType="org.jdom2.input.SAXBuilder" target="true" within="" contains="" />
+      <constraint name="asd" script="&quot;&quot;" within="" contains="" />
+      <constraint name="bar" within="" contains="" />
+      <constraint name="method" within="" contains="" />
     </searchConfiguration>
   </inspection_tool>
   <inspection_tool class="SafeVarargsDetector" enabled="false" level="WARNING" enabled_by_default="false" />
