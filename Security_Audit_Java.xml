@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inspections version="1.0" is_locked="false">
   <option name="myName" value="Security Audit Java" />
-  <option name="myLocal" value="true" />
+  <option name="myLocal" value="false" />
   <inspection_tool class="AbstractBeanReferencesInspection" enabled="false" level="ERROR" enabled_by_default="false" />
   <inspection_tool class="AccessStaticViaInstance" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="AccessorLikeMethodIsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -965,7 +965,7 @@
   <inspection_tool class="RubyUnnecessarySemicolon" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="RubyUnusedLocalVariable" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="RubyWrongHash" enabled="false" level="ERROR" enabled_by_default="false" />
-  <inspection_tool class="SSBasedInspection" enabled="true" level="INFO" enabled_by_default="true">
+  <inspection_tool class="SSBasedInspection" enabled="true" level="WARNING" enabled_by_default="true">
     <searchConfiguration name="getParameter" text="$Instance$.getParameter($Parameter$)" recursive="false" caseInsensitive="false" type="JAVA">
       <constraint name="Instance" minCount="0" within="" contains="" />
       <constraint name="MethodCall" target="true" within="" contains="" />
@@ -1152,17 +1152,27 @@
       <constraint name="Symbol" target="true" within="" contains="" />
     </searchConfiguration>
     <searchConfiguration name="REST annotated class" text="@$Annotation$( )&#10;class $Class$ {}" recursive="false" caseInsensitive="false" type="JAVA">
-      <constraint name="Annotation" script="&quot;&quot;" regexp="Path|Produces|Consumes" maxCount="2147483647" wholeWordsOnly="true" within="" contains="" />
-      <constraint name="Class" script="&quot;&quot;" target="true" within="" contains="" />
-      <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
-    </searchConfiguration>
-    <searchConfiguration name="REST annotated methods" text="class $Class$ {&#10;  @$Annotation$( )&#10;  $MethodType$ $MethodName$($ParameterType$ $ParameterName$);&#10;}" recursive="false" caseInsensitive="false" type="JAVA">
+      <constraint name="Annotation" script="&quot;&quot;" regexp="Path|GET|Get|POST|Post" maxCount="2147483647" wholeWordsOnly="true" within="" contains="" />
       <constraint name="Class" script="&quot;&quot;" within="" contains="" />
-      <constraint name="Annotation" script="&quot;&quot;" regexp="Path" maxCount="2147483647" wholeWordsOnly="true" within="" contains="" />
-      <constraint name="MethodType" maxCount="2147483647" within="" contains="" />
-      <constraint name="MethodName" maxCount="2147483647" target="true" within="" contains="" />
-      <constraint name="ParameterType" minCount="0" maxCount="2147483647" within="" contains="" />
+      <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
+      <constraint name="MethodType" script="&quot;&quot;" within="" contains="" />
+      <constraint name="MethodName" within="" contains="" />
+      <constraint name="params" within="" contains="" />
+      <constraint name="Method" script="&quot;&quot;" target="true" within="" contains="" />
+      <constraint name="ParameterType" script="&quot;&quot;" maxCount="2147483647" within="" contains="" />
+      <constraint name="ParameterDcl" script="&quot;&quot;" maxCount="2147483647" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="REST annotated methods" text="class $Class$ {&#10;    @$Annotation$( )&#10;    $MethodType$ $Method$($ParameterType$ $ParameterDcl$);&#10;}" recursive="false" caseInsensitive="false" type="JAVA">
+      <constraint name="Class" script="&quot;&quot;" within="" contains="" />
+      <constraint name="Annotation" script="&quot;&quot;" regexp="Path|GET|Get|POST|Post" maxCount="2147483647" wholeWordsOnly="true" within="" contains="" />
+      <constraint name="MethodType" script="&quot;&quot;" within="" contains="" />
+      <constraint name="MethodName" within="" contains="" />
+      <constraint name="ParameterType" script="&quot;&quot;" maxCount="2147483647" within="" contains="" />
       <constraint name="ParameterName" minCount="0" maxCount="2147483647" within="" contains="" />
+      <constraint name="params" within="" contains="" />
+      <constraint name="Method" script="&quot;&quot;" target="true" within="" contains="" />
+      <constraint name="ParameterDcl" script="&quot;&quot;" maxCount="2147483647" within="" contains="" />
+      <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
     </searchConfiguration>
     <searchConfiguration name="XML - XMLInputFactory" text="$foo$" recursive="true" caseInsensitive="true" type="JAVA">
       <constraint name="Parameter" within="" contains="" />
