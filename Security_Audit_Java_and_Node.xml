@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inspections version="1.0" is_locked="false">
   <option name="myName" value="Security Audit Java and Node" />
-  <option name="myLocal" value="false" />
+  <option name="myLocal" value="true" />
   <inspection_tool class="AbstractBeanReferencesInspection" enabled="false" level="ERROR" enabled_by_default="false" />
   <inspection_tool class="AccessStaticViaInstance" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="AccessorLikeMethodIsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -249,7 +249,6 @@
   <inspection_tool class="DjangoUnresolvedStaticReferenceInspection" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="DjangoUnresolvedTagInspection" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="DjangoUnresolvedTemplateReferenceInspection" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="DoubleNegation" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="Duplicate function" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="DuplicateCaseLabelJS" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="DuplicateMnemonic" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1285,9 +1284,14 @@
       <constraint name="MethodCall" target="true" within="" contains="" />
       <constraint name="Parameter" minCount="0" maxCount="2147483647" within="" contains="" />
     </searchConfiguration>
-    <searchConfiguration name="JS = potential HTTP" text="$Instance$.$MethodCall$($Parameter$)" recursive="false" caseInsensitive="false" type="JavaScript">
+    <searchConfiguration name="JS - potential HTTP server" text="$Instance$.$MethodCall$($Parameter$)" recursive="false" caseInsensitive="false" type="JavaScript">
       <constraint name="Instance" script="&quot;&quot;" minCount="0" within="" contains="" />
-      <constraint name="MethodCall" script="&quot;&quot;" regexp="(get|use|post|options|route|params|query|param|cookies|signedCookies|url|originalUrl)" within="" contains="" />
+      <constraint name="MethodCall" script="&quot;&quot;" regexp="(del|use|post|options|route|params|query|param|cookies|signedCookies|url|originalUrl)" within="" contains="" />
+      <constraint name="Parameter" script="&quot;&quot;" minCount="2" maxCount="2147483647" within="" contains="" />
+      <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
+    </searchConfiguration>
+    <searchConfiguration name="JS - get HTTP server (high FP)" text="$Instance$.get($Parameter$)" recursive="false" caseInsensitive="false" type="JavaScript">
+      <constraint name="Instance" script="&quot;&quot;" minCount="0" within="" contains="" />
       <constraint name="Parameter" script="&quot;&quot;" minCount="2" maxCount="2147483647" within="" contains="" />
       <constraint name="__context__" script="&quot;&quot;" within="" contains="" />
     </searchConfiguration>
